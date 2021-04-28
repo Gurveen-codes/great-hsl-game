@@ -30,6 +30,7 @@ const App = () => {
 	const clickHandler = (selectedColor) => {
 		if (selectedColor === answerColor) {
 			setWin(true);
+			setColorsArr([...Array(6).fill(answerColor)]);
 		}
 	};
 
@@ -48,7 +49,7 @@ const App = () => {
 					<Square
 						key={i}
 						color={color}
-						className="square"
+						answerColor={answerColor}
 						click={() => clickHandler(color)}
 					></Square>
 				))}

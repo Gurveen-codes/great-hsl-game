@@ -1,14 +1,28 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
-const Square = ({ color, click }) => {
+const Square = ({ color, click, answerColor }) => {
+	const [visibility, setVisibility] = useState(true);
+
+	useEffect(() => {
+		setVisibility(true);
+	}, [color, answerColor]);
+
 	const sqaureStyles = {
-		height: "70px",
-		width: "70px",
-		borderRadius: "50%",
-		border: "1px solid",
 		backgroundColor: `${color}`,
+		opacity: !visibility && 0,
 	};
-	return <div style={sqaureStyles} onClick={click}></div>;
+	return (
+		<div
+			className="square"
+			style={sqaureStyles}
+			onClick={() => {
+				click();
+				if (answerColor !== color) {
+					setVisibility(false);
+				}
+			}}
+		></div>
+	);
 };
 
 export default Square;
