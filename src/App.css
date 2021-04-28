@@ -1,3 +1,21 @@
 .App {
 	text-align: center;
 }
+
+.container {
+	margin: 0 auto;
+	width: 230px;
+	height: 160px;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(2, 1fr);
+	align-items: center;
+	justify-items: center;
+}
+
+.test {
+	margin: 5em auto;
+	height: 100px;
+	width: 100px;
+	border: 2px solid;
+}
