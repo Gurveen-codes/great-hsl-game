@@ -8,6 +8,7 @@ const App = () => {
 	const [answerColor, setAnswerColor] = useState("");
 	const [colorsArr, setColorsArr] = useState([]);
 	const [win, setWin] = useState(false);
+	const [optionsLength, setOptionsLength] = useState(6);
 
 	const getColorsArray = useCallback(
 		(length) => {
@@ -24,26 +25,37 @@ const App = () => {
 	}, []);
 
 	useEffect(() => {
-		setColorsArr(getColorsArray(6));
-	}, [getColorsArray]);
+		setColorsArr(getColorsArray(optionsLength));
+	}, [getColorsArray, optionsLength]);
 
 	const clickHandler = (selectedColor) => {
 		if (selectedColor === answerColor) {
 			setWin(true);
-			setColorsArr([...Array(6).fill(answerColor)]);
+			setColorsArr([...Array(optionsLength).fill(answerColor)]);
 		}
 	};
 
 	const resetHandler = () => {
 		setWin(false);
 		setAnswerColor(generateRandomColor());
-		setColorsArr(getColorsArray(6));
+		setColorsArr(getColorsArray(optionsLength));
+	};
+
+	const modeHandler = (x) => {
+		setOptionsLength(x);
+		resetHandler();
 	};
 
 	return (
 		<div className="App">
 			<Banner answerColor={answerColor} bgColor={win && answerColor} />
-			<button onClick={resetHandler}>New Game</button>
+			<div className="middle">
+				<button onClick={resetHandler}>New Game</button>
+				<button onClick={() => modeHandler(3)}>Easy</button>
+				<button onClick={() => modeHandler(6)}>Medium</button>
+				<button onClick={() => modeHandler(9)}>Hard</button>
+			</div>
+
 			<div className="container">
 				{colorsArr.map((color, i) => (
 					<Square
