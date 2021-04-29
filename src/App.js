@@ -51,9 +51,24 @@ const App = () => {
 			<Banner answerColor={answerColor} bgColor={win && answerColor} />
 			<div className="middle">
 				<button onClick={resetHandler}>New Game</button>
-				<button onClick={() => modeHandler(3)}>Easy</button>
-				<button onClick={() => modeHandler(6)}>Medium</button>
-				<button onClick={() => modeHandler(9)}>Hard</button>
+				<button
+					className={optionsLength === 3 && "active"}
+					onClick={() => modeHandler(3)}
+				>
+					Easy
+				</button>
+				<button
+					className={optionsLength === 6 && "active"}
+					onClick={() => modeHandler(6)}
+				>
+					Medium
+				</button>
+				<button
+					className={optionsLength === 9 && "active"}
+					onClick={() => modeHandler(9)}
+				>
+					Hard
+				</button>
 			</div>
 
 			<div className="container">
@@ -66,7 +81,6 @@ const App = () => {
 					></Square>
 				))}
 			</div>
-			{win && <h1>You Win</h1>}
 		</div>
 	);
 };

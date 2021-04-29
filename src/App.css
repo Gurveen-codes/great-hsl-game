@@ -1,38 +1,78 @@
+:root {
+	--color-light: white;
+	--color-dark: black;
+	--font-color: white;
+	--bg-color: black;
+}
 .App {
 	text-align: center;
-}
-
-.container {
-	margin: 0 auto;
-	width: 230px;
-	height: 230px;
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	grid-template-rows: repeat(3, 1fr);
-	align-items: center;
-	justify-items: center;
+	background: var(--bg-color);
 }
 
 .banner {
+	font-size: 1.5em;
 	transition: all 0.5s ease;
+	color: var(--font-color);
+	text-transform: uppercase;
+	padding: 1em 0;
+}
+
+.banner > p {
+	margin: 0;
+	letter-spacing: 0.15em;
+	word-spacing: 0.1em;
+	font-size: 1.2em;
+}
+
+.banner .main-title {
+	margin: 0.1em 0;
+	letter-spacing: 0.05em;
+	word-spacing: 0.1em;
+}
+
+.middle {
+	display: inline-flex;
+	background: var(--color-light);
+	width: 100%;
+	margin: auto;
+	margin-bottom: 1em;
+	padding: 0 5em;
+}
+.middle button {
+	font-size: 1.2em;
+	padding: 0.6em 0.75em;
+	border: none;
+	color: var(--color-dark);
+	background: var(--color-light);
+}
+
+.middle button:nth-child(2) {
+	margin-left: auto;
+}
+
+.middle button:hover {
+	color: var(--font-color);
+	background: var(--color-dark);
+}
+
+.middle button.active {
+	color: var(--font-color);
+	background: var(--color-dark);
+}
+
+.container {
+	display: grid;
+	grid-template-columns: repeat(3, 80px);
+	grid-template-rows: repeat(3, 80px);
+	gap: 0.75em;
+	justify-content: center;
+	align-items: center;
 }
 
 .square {
 	height: 70px;
 	width: 70px;
-	border-radius: 50%;
-	border: 1px solid;
+	border-radius: 10px;
 	transition: all 0.5s ease;
-}
-
-.middle {
-	width: 60%;
-	margin: 0 auto;
-	display: flex;
-}
-.middle button {
-	margin: 1em 0.25em;
-}
-.middle button:nth-child(2) {
-	margin-left: auto;
+	border: 1px solid #ccc;
 }

@@ -4,9 +4,11 @@ const Banner = ({ bgColor, answerColor }) => {
 	return (
 		<div
 			className="banner"
-			style={{ backgroundColor: `${bgColor ? bgColor : "lightgreen"}` }}
+			style={{ backgroundColor: `${bgColor ? bgColor : "black"}` }}
 		>
-			<h1>{answerColor}</h1>
+			<p>The Great</p>
+			<h1 className="main-title">{answerColor}</h1>
+			<p>Game</p>
 		</div>
 	);
 };
